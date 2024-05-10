@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ohmyfood</title>
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap">
+    <!--Font awsome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--CSS-->
+    <link rel="stylesheet" href="./css/ohmyfood.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <header>
+        <div class="header">
+          <a class="logo" href="index.html">ohmyfood</a>
+        </div>
+      </header>
+      <main>
+        <div class="search">
+          <section class="searchcity">
+            <div class="searchcity__items">
+              <i class="fas fa-map-marker-alt location-icon"></i>
+              <input
+                type="search"
+                name="ville"
+                class="searchcity__items--input"
+                placeholder="Paris, Belleville"
+              />
+            </div>
+          </section>
+        </div>
+        <div class="explore">
+          <section class="exploreresto">
+            <div class="exploreresto__text">
+              <h1>Réservez le menu qui vous convient</h1>
+              <p>Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
+            </div>
+            <div class="cta__button">
+              <a href="#restaurants">
+                Explorer nos restaurants
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <div class="function">
+          <section class="functiontools">
+            <div class="functiontools__title">
+              <h2>Fonctionnement</h2>
+            </div>
+            <div class="functiontools__content">
+              <div class="functiontools__content--item">
+                <div class="item1">
+                  <span>1</span>
+                </div>
+                <div class="item2">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <p>Choisissez un restaurant</p>
+              </div>
+              <div class="functiontools__content--item">
+                <div class="item1">
+                  <span>2</span>
+                </div>
+                <div class="item2">
+                  <i class="fas fa-store-alt"></i>
+                </div>
+                <p>Composez votre menu</p>
+              </div>
+              <div class="functiontools__content--item">
+                <div class="item1">
+                  <span>3</span>
+                </div>
+                <div class="item2">
+                  <i class="fas fa-bars"></i>
+                </div>
+                <p>Dégustez au restaurant</p>
+              </div>
+            </div>
+            </div>
+          </section>
+        <div class="restaurants">
+          <section class="restaurantssection">
+            <div class="restaurantssection__title">
+              <h2 id="restaurants">Restaurants</h2>
+            </div>
+            <div class="restaurantscards">
+              <a chref="lapallette.html">
+                <article class="restaurantscards__img">
+                  <!-- 
+                  <div class="new">test</div>
+                  -->
+                  <img
+                    src="images/restaurants/jay.jpg"
+                    alt="Image de la chambre d'hôtel montrant un lit"
+                  />
+                  <div class="restaurantscards__item">
+                    <div class="restaurantscards__item--txt">
+                      <h3>La palette du goût</h3>
+                      <p>Ménilmontant</p>
+                    </div>
+                    <div class="restaurantscards__item--heartbtn">
+                      <i class="far fa-heart"></i>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            </div>
+            <div class="restaurantscards">
+              <a chref="#">
+                <article class="restaurantscards__img">
+                  <img
+                    src="images/restaurants/unsplash.jpg"
+                    alt="Image de la chambre d'hôtel montrant un lit"
+                  />
+                  <div class="restaurantscards__item">
+                    <div class="restaurantscards__item--txt">
+                      <h3>La note enchantée</h3>
+                      <p>Charonne</p>
+                    </div>
+                    <div class="restaurantscards__item--heartbtn">
+                      <i class="far fa-heart"></i>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            </div>
+            <div class="restaurantscards">
+              <a chref="#">
+                <article class="restaurantscards__img">
+                  <img
+                    src="images/restaurants/toa-heftiba.jpg"
+                    alt="Image de la chambre d'hôtel montrant un lit"
+                  />
+                  <div class="restaurantscards__item">
+                    <div class="restaurantscards__item--txt">
+                      <h3>A la française</h3>
+                      <p>Cité rouge</p>
+                    </div>
+                    <div class="restaurantscards__item--heartbtn">
+                      <i class="far fa-heart"></i>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            </div>
+            <div class="restaurantscards">
+              <a chref="#">
+                <article class="restaurantscards__img">
+                  <img
+                    src="images/restaurants/louis.jpg"
+                    alt="Image de la chambre d'hôtel montrant un lit"
+                  />
+                  <div class="restaurantscards__item">
+                    <div class="restaurantscards__item--txt">
+                      <h3>Le délice des sens</h3>
+                      <p>Folie Méricout</p>
+                    </div>
+                    <div class="restaurantscards__item--heartbtn">
+                      <i class="far fa-heart"></i>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            </div>
+          </section>
+        </div>
+      <footer>
+        <div class="footer">
+          <section class="footermenu">
+            <div class="footermenu__title">
+              <a href="index.html">ohmyfood</a>
+            </div>
+            <div class="footermenu__item">
+              <div class="footermenu__item--link">
+                <i class="fas fa-utensils"></i>
+                <a href="#">Proposer un restaurant</a>
+              </div>
+              <div class="footermenu__item--link">
+                <i class="fas fa-handshake"></i>
+                <a href="#">Devenir partenaire</a>
+              </div>
+              <a href="#">Mention légales</a>
+              <a href="#">Contact</a>
+            </div>
+        </section>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

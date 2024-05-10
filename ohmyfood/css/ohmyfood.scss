@@ -1,0 +1,289 @@
+// Raccourcis
+$ohmyfood: "Shrikhand";
+$bg-color: #ededed;
+$color: #9356dc;
+$itemborder-radius: 15px 15px;
+$btnborder-radius: 20px;
+
+@mixin btn {
+  display: flex;
+  height: 2.5em;
+  justify-content: center;
+  align-items: center;
+  width: 12em;
+  border-radius: $btnborder-radius;
+  background: linear-gradient(#ff79da, $color);
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+}
+
+/* General */
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  margin: 0 1.5em;
+}
+
+/* Header */
+.header {
+  text-align: center;
+
+  a {
+    color: unset;
+    text-decoration: none;
+    font-family: $ohmyfood;
+    font-size: 2em;
+    font-weight: 800;
+  }
+}
+
+.location-icon {
+  padding-left: 3em;
+}
+
+.search {
+  background-color: $bg-color;
+  box-shadow: 0px 0px 8px 2px #707070;
+  margin-bottom: 4px;
+}
+
+.searchcity__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+
+  &--input {
+    border: none;
+    background-color: $bg-color;
+    text-indent: 1em;
+    outline: none;
+  }
+
+  &--input::placeholder {
+    color: #0d0d0d;
+    font-weight: bold;
+  }
+}
+
+/*Book*/
+.explore {
+  background-color: $bg-color;
+}
+
+.exploreresto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.exploreresto__text {
+  h1 {
+    display: block;
+    padding: 0 1.5em;
+  }
+}
+
+.cta__button {
+  @include btn;
+  margin-bottom: 2em;
+}
+
+.cta__button:hover {
+  background: linear-gradient(#fd8ede, #9c66de);
+  box-shadow: 0px 0px 10px 5px #e3d3e9;
+}
+
+/*Fonctionnement*/
+.functiontools__content {
+  &--item {
+    display: flex;
+    min-width: 300px;
+    height: 3em;
+    justify-content: left;
+    align-items: center;
+    margin: 1em 0.6em;
+    border-radius: $itemborder-radius;
+    background-color: $bg-color;
+    box-shadow: 0px 3px 7px 2px #d2d2d2;
+
+    .item1 {
+      width: 20px;
+      height: 20px;
+      font-size: small;
+      background-color: $color;
+      border-radius: 50%;
+      text-align: center;
+      color: #ffffff;
+      margin-right: 5px;
+      position: absolute;
+      left: 25px;
+    }
+
+    .item2 {
+      width: 10px;
+      margin: 0 1.7em;
+      color: #6b6b6b;
+    }
+
+    .item2:hover {
+      color: $color;
+    }
+  }
+}
+
+/*Cards*/
+.restaurants {
+  background-color: $bg-color;
+  padding-top: 0.5em;
+}
+
+.restaurantscards__item {
+  margin-top: -3px;
+}
+
+article {
+  position: relative;
+}
+
+.restaurantscards {
+  padding-bottom: 1.5em;
+
+  &__img > img {
+    object-fit: cover;
+    width: 100%;
+    height: 10em;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 0 0 20px 20px;
+    justify-content: space-between;
+    align-items: center;
+
+    .restaurantscards__item--txt {
+      margin-left: 1em;
+    }
+
+    h3 {
+      margin: 0;
+      padding-top: 1em;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .restaurantscards__item--heartbtn {
+      margin-right: 1em;
+      cursor: pointer;
+    }
+
+    .restaurantscards__item--heartbtn i.far.fa-heart:before {
+      stroke-width: 1px;
+    }
+  }
+}
+
+/*footer*/
+.footer {
+  background-color: #282727;
+}
+
+.footermenu {
+  padding: 0.5em 0;
+
+  .footermenu__title {
+    padding: 10px 0;
+  }
+
+  .footermenu__title a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: $ohmyfood;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+}
+
+.footermenu__item {
+  display: block;
+  padding: 0.5em 0;
+
+  * {
+    padding-bottom: 5px;
+  }
+
+  a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  &--link {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  i {
+    color: #ffffff;
+    padding-right: 0.5em;
+  }
+}
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 1024px) {
+  section {
+    margin: 0 10%;
+  }
+
+  .functiontools__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+  }
+
+  .functiontools__content--item .item1 {
+    position: relative;
+    left: -10px;
+  }
+
+  .restaurantscards a {
+    display: block;
+  }
+
+  .restaurantscards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/**Test
+article {
+  position: relative;
+}
+
+.new {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+}
+**/
