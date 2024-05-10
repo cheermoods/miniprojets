@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Météo</title>
+    <link rel="stylesheet" href="css/meteo.css" />
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/meteo.js" defer></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <main>
+        <div class="infosmeteo">
+          <section class="city">
+            <div class="city__name">
+              <h1>METEO <span id="city-name">VILLE</span></h1>
+            </div>
+            <div id="city-weather" class="city__meteo">
+              <div class="city__meteo--temp">
+                Température : <span id="city-temp">XX°C</span>
+              </div>
+              <div class="city__meteo--humidity">
+                Humidité: <span id="city-humidity">XX%</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
