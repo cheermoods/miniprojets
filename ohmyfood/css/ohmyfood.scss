@@ -5,11 +5,14 @@ $color: #9356dc;
 $itemborder-radius: 15px 15px;
 $btnborder-radius: 20px;
 
-@mixin btn {
+@mixin center {
   display: flex;
-  height: 2.5em;
   justify-content: center;
   align-items: center;
+}
+
+@mixin btn {
+  height: 2.5em;
   width: 12em;
   border-radius: $btnborder-radius;
   background: linear-gradient(#ff79da, $color);
@@ -17,6 +20,53 @@ $btnborder-radius: 20px;
     color: #ffffff;
     text-decoration: none;
     font-size: 0.9em;
+  }
+}
+
+/* Loader */
+
+body {
+  position: relative;
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #ff79da;
+  animation: load 1s linear forwards, fadeOut 1s 0.9s forwards;
+  z-index: 1000;
+}
+
+.main-container {
+  opacity: 0;
+  animation: fadeIn 1s 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }
 
@@ -59,9 +109,7 @@ section {
 }
 
 .searchcity__items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center;
   height: 2.5em;
 
   &--input {
@@ -83,21 +131,24 @@ section {
 }
 
 .exploreresto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
+  @include center;
+  flex-direction: column;
 }
+
 .exploreresto__text {
   h1 {
+    @include center;
     display: block;
     padding: 0 1.5em;
   }
 }
 
 .cta__button {
+  @include center;
   @include btn;
   margin-bottom: 2em;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
 .cta__button:hover {
@@ -109,22 +160,21 @@ section {
 .functiontools__content {
   &--item {
     display: flex;
+    align-items: center;
     min-width: 300px;
     height: 3em;
-    justify-content: left;
-    align-items: center;
     margin: 1em 0.6em;
     border-radius: $itemborder-radius;
     background-color: $bg-color;
     box-shadow: 0px 3px 7px 2px #d2d2d2;
 
     .item1 {
+      @include center;
       width: 20px;
       height: 20px;
       font-size: small;
       background-color: $color;
       border-radius: 50%;
-      text-align: center;
       color: #ffffff;
       margin-right: 5px;
       position: absolute;
@@ -149,18 +199,19 @@ section {
   padding-top: 0.5em;
 }
 
-.restaurantscards__item {
+.card .carditem__txt {
   margin-top: -3px;
 }
 
-article {
-  position: relative;
-}
-
-.restaurantscards {
+.carditem {
   padding-bottom: 1.5em;
 
-  &__img > img {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
     object-fit: cover;
     width: 100%;
     height: 10em;
@@ -168,14 +219,27 @@ article {
     overflow: hidden;
   }
 
-  &__item {
+  article {
+    position: relative;
+  }
+
+  &__label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    color: green;
+    font-weight: bold;
+    background-color: lightgreen;
+  }
+
+  &__txt {
     display: flex;
     background-color: #ffffff;
     border-radius: 0 0 20px 20px;
-    justify-content: space-between;
     align-items: center;
 
-    .restaurantscards__item--txt {
+    .carditem__txt--content {
       margin-left: 1em;
     }
 
@@ -187,16 +251,54 @@ article {
     p {
       margin-top: 0;
     }
-
-    .restaurantscards__item--heartbtn {
-      margin-right: 1em;
-      cursor: pointer;
-    }
-
-    .restaurantscards__item--heartbtn i.far.fa-heart:before {
-      stroke-width: 1px;
-    }
   }
+}
+
+.card {
+  position: relative;
+
+  &__heartbtn i {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    bottom: 55px;
+    font-size: 1.2em;
+  }
+}
+
+.hidden-checkbox,
+.hidden-checkbox2,
+.hidden-checkbox3,
+.hidden-checkbox4 {
+  display: none;
+}
+
+.colored {
+  display: none;
+}
+
+.hidden-checkbox:checked + .card__heartbtn--label .empty,
+.hidden-checkbox2:checked + .card__heartbtn--label2 .empty,
+.hidden-checkbox3:checked + .card__heartbtn--label3 .empty,
+.hidden-checkbox4:checked + .card__heartbtn--label4 .empty {
+  display: none;
+}
+
+.hidden-checkbox:checked + .card__heartbtn--label .colored,
+.hidden-checkbox2:checked + .card__heartbtn--label2 .colored,
+.hidden-checkbox3:checked + .card__heartbtn--label3 .colored,
+.hidden-checkbox4:checked + .card__heartbtn--label4 .colored {
+  display: inline;
+  color: transparent;
+}
+
+.colored::before {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: linear-gradient(#9c66de, #fd8ede);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /*footer*/
@@ -264,26 +366,34 @@ article {
     left: -10px;
   }
 
-  .restaurantscards a {
-    display: block;
-  }
-
   .restaurantscards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-}
 
-/**Test
-article {
-  position: relative;
-}
+  .footermenu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: right;
+  }
 
-.new {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: white;
+  .footermenu__item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 0;
+
+    &--link {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .footermenu__title {
+    order: 1;
+    position: relative;
+    right: -150px;
+  }
 }
-**/

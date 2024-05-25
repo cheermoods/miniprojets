@@ -1,3 +1,46 @@
+/* Loader */
+body {
+  position: relative;
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #ff79da;
+  animation: load 1s linear forwards, fadeOut 1s 0.9s forwards;
+  z-index: 1000;
+}
+
+.main-container {
+  opacity: 0;
+  animation: fadeIn 1s 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 /* General */
 * {
   box-sizing: border-box;
@@ -58,26 +101,31 @@ section {
 }
 
 .exploreresto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .exploreresto__text h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: block;
   padding: 0 1.5em;
 }
 
 .cta__button {
   display: flex;
-  height: 2.5em;
   justify-content: center;
   align-items: center;
+  height: 2.5em;
   width: 12em;
   border-radius: 20px;
   background: linear-gradient(#ff79da, #9356dc);
   margin-bottom: 2em;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 .cta__button a {
   color: #ffffff;
@@ -93,22 +141,23 @@ section {
 /*Fonctionnement*/
 .functiontools__content--item {
   display: flex;
+  align-items: center;
   min-width: 300px;
   height: 3em;
-  justify-content: left;
-  align-items: center;
   margin: 1em 0.6em;
   border-radius: 15px 15px;
   background-color: #ededed;
   box-shadow: 0px 3px 7px 2px #d2d2d2;
 }
 .functiontools__content--item .item1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20px;
   height: 20px;
   font-size: small;
   background-color: #9356dc;
   border-radius: 50%;
-  text-align: center;
   color: #ffffff;
   margin-right: 5px;
   position: absolute;
@@ -129,47 +178,97 @@ section {
   padding-top: 0.5em;
 }
 
-.restaurantscards__item {
+.card .carditem__txt {
   margin-top: -3px;
 }
 
-article {
-  position: relative;
-}
-
-.restaurantscards {
+.carditem {
   padding-bottom: 1.5em;
 }
-.restaurantscards__img > img {
+.carditem a {
+  color: inherit;
+  text-decoration: none;
+}
+.carditem img {
   object-fit: cover;
   width: 100%;
   height: 10em;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
 }
-.restaurantscards__item {
+.carditem article {
+  position: relative;
+}
+.carditem__label {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  color: green;
+  font-weight: bold;
+  background-color: lightgreen;
+}
+.carditem__txt {
   display: flex;
   background-color: #ffffff;
   border-radius: 0 0 20px 20px;
-  justify-content: space-between;
   align-items: center;
 }
-.restaurantscards__item .restaurantscards__item--txt {
+.carditem__txt .carditem__txt--content {
   margin-left: 1em;
 }
-.restaurantscards__item h3 {
+.carditem__txt h3 {
   margin: 0;
   padding-top: 1em;
 }
-.restaurantscards__item p {
+.carditem__txt p {
   margin-top: 0;
 }
-.restaurantscards__item .restaurantscards__item--heartbtn {
-  margin-right: 1em;
-  cursor: pointer;
+
+.card {
+  position: relative;
 }
-.restaurantscards__item .restaurantscards__item--heartbtn i.far.fa-heart:before {
-  stroke-width: 1px;
+.card__heartbtn i {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  bottom: 55px;
+  font-size: 1.2em;
+}
+
+.hidden-checkbox,
+.hidden-checkbox2,
+.hidden-checkbox3,
+.hidden-checkbox4 {
+  display: none;
+}
+
+.colored {
+  display: none;
+}
+
+.hidden-checkbox:checked + .card__heartbtn--label .empty,
+.hidden-checkbox2:checked + .card__heartbtn--label2 .empty,
+.hidden-checkbox3:checked + .card__heartbtn--label3 .empty,
+.hidden-checkbox4:checked + .card__heartbtn--label4 .empty {
+  display: none;
+}
+
+.hidden-checkbox:checked + .card__heartbtn--label .colored,
+.hidden-checkbox2:checked + .card__heartbtn--label2 .colored,
+.hidden-checkbox3:checked + .card__heartbtn--label3 .colored,
+.hidden-checkbox4:checked + .card__heartbtn--label4 .colored {
+  display: inline;
+  color: transparent;
+}
+
+.colored::before {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: linear-gradient(#9c66de, #fd8ede);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /*footer*/
@@ -228,24 +327,30 @@ article {
     position: relative;
     left: -10px;
   }
-  .restaurantscards a {
-    display: block;
-  }
   .restaurantscards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-}
-/**Test
-article {
-  position: relative;
-}
-
-.new {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: white;
-}
-**//*# sourceMappingURL=ohmyfood.css.map */
+  .footermenu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: right;
+  }
+  .footermenu__item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 0;
+  }
+  .footermenu__item--link {
+    display: flex;
+    align-items: center;
+  }
+  .footermenu__title {
+    order: 1;
+    position: relative;
+    right: -150px;
+  }
+}/*# sourceMappingURL=ohmyfood.css.map */
