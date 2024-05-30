@@ -10,11 +10,15 @@ $btnborder-radius: 20px;
   background: none;
   position: absolute;
   left: 1.5em;
-  top: 5px;
 
   i {
     font-size: 25px;
   }
+}
+
+.baner {
+  position: relative;
+  z-index: 1;
 }
 
 .baner img {
@@ -22,28 +26,32 @@ $btnborder-radius: 20px;
   width: 100%;
   height: 100%;
   max-height: 200px;
-  position: relative;
-  z-index: 1;
-}
-
-.menu {
-  display: flex;
-  justify-content: center;
 }
 
 .restaurant {
-  width: 70%;
-  background-color: $bg-color;
-  border-radius: 40px 40px 0 0;
-  margin-top: -40px;
+  display: flex;
+  justify-content: center;
   position: relative;
   z-index: 2;
+  margin-top: -50px;
+}
+
+.restaurantmenu {
+  width: 70%;
+  border-radius: 40px 40px 0 0;
+}
+
+.restaurantcard {
+  background-color: $bg-color;
+  position: relative;
+  padding: 0 1.5em;
 
   .restaurantcard__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    z-index: 2;
 
     &--title {
       font-family: $ohmyfood;
@@ -58,7 +66,7 @@ $btnborder-radius: 20px;
     cursor: pointer;
     position: absolute;
     right: 15px;
-    bottom: 27px;
+    bottom: 22px;
     font-size: 1.2em;
   }
 }
@@ -93,7 +101,8 @@ $btnborder-radius: 20px;
   margin: 1em 0 2em 0;
 }
 
-.platcard__content {
+.platcard__content,
+.platcard__content1 {
   background-color: #ffffff;
   border-radius: 20px 20px;
   padding: 1em;
@@ -126,7 +135,8 @@ $btnborder-radius: 20px;
       font-weight: lighter;
     }
 
-    .price {
+    .price,
+    .price1 {
       font-weight: bold;
       transition: margin-right 0.3s;
     }
@@ -160,16 +170,18 @@ $btnborder-radius: 20px;
 .platcard__content--details {
   display: flex;
   align-items: center;
-  white-space: nowrap; /* Empêche le contenu de se casser en ligne */
-  overflow: hidden; /* Cache le contenu qui dépasse */
   transition: margin-right 0.5s ease; /* Ajoute une transition pour le margin-right */
 }
 
 .details {
+  white-space: nowrap; /* Empêche le contenu de se casser en ligne */
+  overflow: hidden; /* Cache le contenu qui dépasse */
   flex-shrink: 1; /* Permet au texte des détails de se réduire */
+  text-overflow: ellipsis;
 }
 
-.check {
+.check,
+.check1 {
   position: absolute;
   opacity: 0;
   background-color: green;
@@ -180,18 +192,21 @@ $btnborder-radius: 20px;
   padding: 28px 0 26px 25px;
   border-radius: 0 20px 20px 0;
   overflow: hidden;
-  transition: width 0.1s ease, opacity 0.1s ease 0.1s;
+  transition: width 0.3s ease, opacity 0.3s ease;
 }
 
 .toggle-check {
   display: none;
 }
 
-.toggle-check:checked ~ .platcard__label .price {
+.toggle-check:checked ~ .platcard__label .price1,
+.platcard__content:hover .price {
   margin-right: 60px;
+  transition: margin-right 0.3s ease;
 }
 
-.toggle-check:checked ~ .platcard__label .check {
+.toggle-check:checked ~ .platcard__label .check1,
+.platcard__content:hover .check {
   opacity: 1;
   width: 65px;
   position: absolute;
@@ -208,6 +223,8 @@ $btnborder-radius: 20px;
   align-items: center;
   transition: background 0.5s ease, box-shadow 0.5s ease;
 }
+
+/** Hover **/
 
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
@@ -244,4 +261,10 @@ $btnborder-radius: 20px;
     border-radius: 0 20px 20px 0;
     transition: width 0.3s ease, opacity 0.3s ease 0.3s;
   }
+}
+
+div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

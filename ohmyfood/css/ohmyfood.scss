@@ -307,13 +307,13 @@ section {
 }
 
 .footermenu {
-  padding: 0.5em 0;
+  padding: 0 1.5em;
 
   .footermenu__title {
     padding: 10px 0;
   }
 
-  .footermenu__title a {
+  .footermenu__title h3 + a {
     color: #ffffff;
     text-decoration: none;
     font-family: $ohmyfood;

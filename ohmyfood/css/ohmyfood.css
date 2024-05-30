@@ -277,7 +277,7 @@ section {
 }
 
 .footermenu {
-  padding: 0.5em 0;
+  padding: 0 1.5em;
 }
 .footermenu .footermenu__title {
   padding: 10px 0;
@@ -351,6 +351,6 @@ section {
   .footermenu__title {
     order: 1;
     position: relative;
-    right: -150px;
+    right: -50px;
   }
-}/*# sourceMappingURL=ohmyfood.css.map */
+} /*# sourceMappingURL=ohmyfood.css.map */
