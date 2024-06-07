@@ -25,7 +25,7 @@ $btnborder-radius: 20px;
   object-fit: cover;
   width: 100%;
   height: 100%;
-  max-height: 200px;
+  max-height: 400px;
 }
 
 .restaurant {
@@ -223,8 +223,6 @@ $btnborder-radius: 20px;
   align-items: center;
   transition: background 0.5s ease, box-shadow 0.5s ease;
 }
-
-/** Hover **/
 
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */

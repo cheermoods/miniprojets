@@ -52,16 +52,15 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 0;
-  height: 4px;
+  height: 5px;
   background-color: #ff79da;
-  animation: load 1s linear forwards, fadeOut 1s 0.9s forwards;
-  z-index: 1000;
+  animation: load 2s linear forwards, fadeOut 2s 1.5s forwards;
+  z-index: 5;
 }
 
 .main-container {
   opacity: 0;
-  animation: fadeIn 1s 1s forwards;
+  animation: fadeIn 2s 1.5s forwards;
 }
 
 @keyframes fadeIn {
@@ -313,7 +312,7 @@ section {
     padding: 10px 0;
   }
 
-  .footermenu__title h3 + a {
+  .footermenu__title h3 > a {
     color: #ffffff;
     text-decoration: none;
     font-family: $ohmyfood;
@@ -377,13 +376,15 @@ section {
     gap: 20px;
     align-items: center;
     justify-content: right;
+    position: relative;
   }
 
   .footermenu__item {
     display: flex;
     gap: 20px;
-    align-items: center;
     padding-bottom: 0;
+    position: absolute;
+    right: 130px;
 
     &--link {
       display: flex;
@@ -394,6 +395,6 @@ section {
   .footermenu__title {
     order: 1;
     position: relative;
-    right: -150px;
+    right: -100px;
   }
 }
