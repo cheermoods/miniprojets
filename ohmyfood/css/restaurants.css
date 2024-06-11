@@ -176,7 +176,7 @@
   background-color: #99e2d0;
   color: white;
   width: 0;
-  height: 73px;
+  height: 69px;
   right: 0;
   bottom: 0;
   padding: 28px 0 26px 25px;
@@ -199,7 +199,7 @@
 .platcard__content:hover .check {
   opacity: 1;
   width: 65px;
-  height: 73px;
+  height: 69px;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -225,13 +225,6 @@
     width: 100%;
   }
   .check {
-    position: absolute;
-    opacity: 0;
-    background-color: #99e2d0;
-    color: white;
-    width: 0;
-    right: 0;
-    bottom: 0;
     padding: 25px 0 29px 29px;
     border-radius: 0 20px 20px 0;
     overflow: hidden;
