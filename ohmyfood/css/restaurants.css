@@ -109,6 +109,7 @@
   font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .platcard__content--details,
 .platcard__content1--details {
@@ -172,9 +173,10 @@
 .check1 {
   position: absolute;
   opacity: 0;
-  background-color: green;
+  background-color: #99e2d0;
   color: white;
   width: 0;
+  height: 69.5px;
   right: 0;
   bottom: 0;
   padding: 28px 0 26px 25px;
@@ -197,12 +199,13 @@
 .platcard__content:hover .check {
   opacity: 1;
   width: 65px;
+  height: 69.5px;
   position: absolute;
   right: 0;
   bottom: 0;
   padding: 28px 0 26px 25px;
   border-radius: 0 20px 20px 0;
-  transition: width 0.3s ease, opacity 0.3s ease 0.3s;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease 0.3s;
 }
 
 .order {
