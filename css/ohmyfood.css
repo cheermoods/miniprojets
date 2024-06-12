@@ -26,7 +26,7 @@ body {
   left: 0;
   height: 5px;
   background-color: #ff79da;
-  animation: load 2s linear forwards, fadeOut 2s 1.5s forwards;
+  animation: load 2s linear forwards, fadeOut 2s 1.6s forwards;
   z-index: 5;
 }
 
